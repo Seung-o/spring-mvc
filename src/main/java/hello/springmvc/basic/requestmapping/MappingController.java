@@ -1,10 +1,7 @@
 package hello.springmvc.basic.requestmapping;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -24,6 +21,12 @@ public class MappingController {
     @GetMapping("/mapping-get-v2") // GET 메서드만 매핑
     public String mappingGetV2() {
         log.info("mappingGetV1");
+        return "ok";
+    }
+
+    @GetMapping("/mapping/{userId}") // GET 메서드만 매핑
+    public String mappingPath(@PathVariable("userId") String userId) {
+        log.info("mappingPath userId={}", userId);
         return "ok";
     }
 }
