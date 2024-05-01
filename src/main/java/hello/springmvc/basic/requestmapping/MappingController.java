@@ -29,4 +29,10 @@ public class MappingController {
         log.info("mappingPath userId={}", userId);
         return "ok";
     }
+
+    @GetMapping("/mapping/users/{userId}/orders/{orderId}") // GET 메서드만 매핑
+    public String mappingPath(@PathVariable String userId, @PathVariable Long orderId) { // 변수 이름과 파라미터 이름이 같으면 생략 가능
+        log.info("mappingPath userId={}, orderId={}", userId, orderId);
+        return "ok";
+    }
 }
