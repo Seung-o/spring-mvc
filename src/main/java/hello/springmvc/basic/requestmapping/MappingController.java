@@ -56,4 +56,13 @@ public class MappingController {
         log.info("mappingParam");
         return "ok";
     }
+
+    /**
+     * 특정 헤더로 추가 매핑
+     */
+    @GetMapping(value = "/mapping-header", headers = "mode=debug") // GET 메서드만 매핑
+    public String mappingHeader() {
+        log.info("mappingHeader");
+        return "ok";
+    }
 }
