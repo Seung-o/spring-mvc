@@ -30,9 +30,30 @@ public class MappingController {
         return "ok";
     }
 
+    /**
+     * PathVariable 다중 사용
+     * @param userId
+     * @param orderId
+     * @return
+     */
     @GetMapping("/mapping/users/{userId}/orders/{orderId}") // GET 메서드만 매핑
     public String mappingPath(@PathVariable String userId, @PathVariable Long orderId) { // 변수 이름과 파라미터 이름이 같으면 생략 가능
         log.info("mappingPath userId={}, orderId={}", userId, orderId);
+        return "ok";
+    }
+
+    /**
+     * 파라미터로 추가 매핑
+     * 특정 파라미터가 있어야만 호출되도록 설정
+     * params="mode"
+     * params="!mode"
+     * params="mode=debug"
+     * params="mode!=debug"
+     * params={"mode=debug", "data=good"}
+     */
+    @GetMapping(value = "/mapping-param", params = "mode=debug") // GET 메서드만 매핑
+    public String mappingParam() {
+        log.info("mappingParam");
         return "ok";
     }
 }
