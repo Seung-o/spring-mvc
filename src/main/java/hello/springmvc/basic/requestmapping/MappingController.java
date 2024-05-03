@@ -65,4 +65,13 @@ public class MappingController {
         log.info("mappingHeader");
         return "ok";
     }
+
+    /**
+     * 미디어 타입 조건 매핑
+     */
+    @PostMapping(value = "/mapping-consume", consumes = "application/json") // POST 메서드만 매핑
+    public String mappingConsumes() {
+        log.info("mappingConsumes");
+        return "ok";
+    }
 }
