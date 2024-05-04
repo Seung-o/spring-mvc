@@ -1,6 +1,7 @@
 package hello.springmvc.basic.requestmapping;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -69,16 +70,16 @@ public class MappingController {
     /**
      * 미디어 타입 조건 매핑
      */
-    @PostMapping(value = "/mapping-consume", consumes = "application/json") // POST 메서드만 매핑
+    @PostMapping(value = "/mapping-consume", consumes = MediaType.APPLICATION_JSON_VALUE) // POST 메서드만 매핑
     public String mappingConsumes() {
         log.info("mappingConsumes");
         return "ok";
     }
 
     /**
-     * Accept 헤더 기반 Media Type 매핑
+     * Accept 헤더 기반 매핑
      */
-    @PostMapping(value = "/mapping-produce", produces = "text/html") // POST 메서드만 매핑
+    @PostMapping(value = "/mapping-produce", produces = MediaType.TEXT_HTML_VALUE) // POST 메서드만 매핑
     public String mappingProduces() {
         log.info("mappingProduces");
         return "ok";
