@@ -1,8 +1,11 @@
 package hello.springmvc.basic.requestmapping;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/mapping/users")
+@Slf4j
 public class MappingClassController {
     /**
      *
@@ -13,28 +16,28 @@ public class MappingClassController {
      * * 회원 삭제: DELETE /users/{userId}
      */
 
-    @GetMapping("/users")
+    @GetMapping
     public String users() {
         return "get users";
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public String addUser() {
         return "post users";
     }
 
-    @GetMapping("/users/{userId}")
-    public String findUser() {
+    @GetMapping("/{userId}")
+    public String findUser(@PathVariable String userId) {
         return "get userId";
     }
 
-    @PatchMapping("/users/{userId}")
-    public String updateUser() {
+    @PatchMapping("/{userId}")
+    public String updateUser(@PathVariable String userId) {
         return "patch userId";
     }
 
-    @DeleteMapping("/users/{userId}")
-    public String deleteUser() {
+    @DeleteMapping("/{userId}")
+    public String deleteUser(@PathVariable String userId) {
         return "delete userId";
     }
 
