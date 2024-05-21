@@ -5,10 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -65,7 +62,7 @@ public class RequestParamController {
 
     @ResponseBody
     @RequestMapping("/model-attribute-v1")
-    public String modelAttributeV1(@RequestParam HelloData helloData) {
+    public String modelAttributeV1(@ModelAttribute HelloData helloData) {
         log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
         return "ok";
     }
