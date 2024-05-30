@@ -45,4 +45,10 @@ public class RequestBodyStringController {
         log.info("messageBody={}", messageBody);
         return new ResponseEntity<String>(HttpStatus.CREATED);
     }
+
+    @PostMapping("/request-body-string-v4")
+    public HttpEntity<String> requestBodyStringV4(@RequestBody String messageBody) {
+        log.info("messageBody={}", messageBody);
+        return new ResponseEntity<String>("ok", HttpStatus.CREATED);
+    }
 }
