@@ -33,9 +33,9 @@ public class MappingController {
 
     /**
      * PathVariable 다중 사용
-     * @param userId
-     * @param orderId
-     * @return
+     * @param userId 유저 아이디
+     * @param orderId 주문 아이디
+     * @return ok
      */
     @GetMapping("/mapping/users/{userId}/orders/{orderId}") // GET 메서드만 매핑
     public String mappingPath(@PathVariable String userId, @PathVariable Long orderId) { // 변수 이름과 파라미터 이름이 같으면 생략 가능
